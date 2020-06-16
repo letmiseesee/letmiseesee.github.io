@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://letmiseesee.github.io</id>
+    <title>let mi see see</title>
+    <updated>2020-06-16T09:29:16.878Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://letmiseesee.github.io"/>
+    <link rel="self" href="https://letmiseesee.github.io/atom.xml"/>
+    <logo>https://letmiseesee.github.io/images/avatar.png</logo>
+    <icon>https://letmiseesee.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2020, let mi see see</rights>
+</feed>
