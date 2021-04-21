@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title>随笔 ji 余生</title>
+    <meta charset="utf-8">
+    <base href="https://lmssee.cn">
+    <script src="js/format.js"></script>
+    <link rel="stylesheet" href="css/only.css">
+</head>
+
+<body oncontextmenu="return false" onselectstart="return false" oncopy="return false;" oncut="return false;">
+    <main>
+
+        <div class="homeDo">
+            <br>
+            <br>
+            <br>
+            <br>
+            <h1>欢迎来到甘酒肆的个人空间</h1>
+            <br><br>
+            <p>简单点, 简单点, 简单点</p>
+            <p>网站就要写的简单点</p>
+            <p>反正也不会有人看</p>
+            <p>自娱自乐多快乐</p>
+
+
+        </div>
+        <div id="wrapper">
+            <div id="the_cube">
+                <div class="front">看</div>
+                <div class="back">有</div>
+                <div class="left">飞</div>
+                <div class="right">盒</div>
+                <div class="top">呀</div>
+                <div class="bottom">快</div>
+            </div> 　　</div>
+    </main>
+</body>
+<script>
+    document.oncontextmenu = function() {
+        alert('你好，地球人\n欢迎来到异时空\n这里没有粘贴,没有复制\n \n有的\n只是一颗爱你的♥\n和一个闷骚的胖子\n\n送你一朵花花🌻');
+        window.event.returnValue = false;
+        return false;
+    };
+    document.onkeydown = document.onkeyup = document.onkeypress = function(e) {
+        let event = e || window.event || arguments.callee.caller.arguments[0];
+        if (window.event && window.event.keyCode == 123) {
+            event.keyCode = 0;
+            event.returnValue = false;
+            return false;
+        }
+        if (event.ctrlKey && window.event.keyCode == 85) {
+            event.returnValue = false;
+            return false;
+        }
+        if (event.shiftKey) {
+            event.returnValue = false;
+            return false;
+        }
+        if (event.ctrlKey) {
+            event.returnValue = false;
+            return false;
+        }
+
+        if (event.altKey) {
+            event.returnValue = false;
+            return false;
+
+        }
+    };
+</script>
+
+</html>

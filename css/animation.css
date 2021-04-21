@@ -1,0 +1,51 @@
+/* 主页 */
+
+#con_1a ul li:hover,
+#con_1a ul li.hover,
+#con_1a ul:hover li.hover:hover {
+    animation: min-max 8s ease-in-out infinite;
+    -webkit-animation: min-max 8s ease-in-out infinite;
+}
+
+#con_1a ul:hover li.hover {
+    animation: none;
+    -webkit-animation: none;
+}
+
+#con_1a ul.hover li:hover {
+    animation: none;
+    -webkit-animation: none;
+}
+
+header div img {
+    animation: headerImage 8s linear infinite;
+    -webkit-animation: headerImage 8s linear infinite;
+}
+
+header div:hover img {
+    animation: none;
+    -webkit-animation: none;
+}
+
+@media screen and (max-width: 900px) {
+    header:hover {
+        height: 6%;
+        border: 0;
+        border-radius: 0;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        -ms-border-radius: 0;
+        -o-border-radius: 0;
+        border-top-color: #ff0000;
+        border-right-color: #00ff00;
+        border-bottom-color: #0000ff;
+        border-left-color: #000000;
+        animation: none;
+        -webkit-animation: none;
+    }
+    header div img {
+        animation: headerImage 8s linear infinite;
+        -webkit-animation: headerImage 8s linear infinite;
+        opacity: 0.5;
+    }
+}

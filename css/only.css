@@ -1,0 +1,98 @@
+body {
+    height: 100%;
+    overflow: hidden;
+    background-color: #000000;
+}
+
+main {
+    padding-bottom: 10000px;
+}
+
+h1,
+p,
+a,
+a h1 {
+    text-align: center;
+    text-decoration: none;
+    color: #0ff;
+    text-shadow: 3px 0 3px #f00, 0 3px 3px #f00, -3px 0 3px #f00, 0 -3px 3px #f00, 3px 3px 3px #0ff, 3px -3px 3px #0ff, -3px 3px 3px #0ff, -3px -3px 3px #0ff;
+    margin: 10px auto;
+}
+
+p:hover {
+    text-shadow: .5px -.5px #000000, -.5px .5px #00ffff;
+    color: #ffffff;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+
+/* 球球
+         */
+
+#wrapper {
+    perspective: 1200px;
+    width: 5%;
+    margin: auto;
+}
+
+#the_cube {
+    -moz-transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    animation: spin 1s ease 0s infinite alternate;
+    -webkit-animation: spin 1s ease 0s infinite alternate;
+}
+
+@keyframes spin {
+    from {
+        transform: rotateY(0deg) rotateX(0deg);
+    }
+    to {
+        transform: rotateY(360deg) rotateX(360deg);
+    }
+}
+
+#the_cube div {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    border: 3px solid #0000ff;
+    /* background: rgba(200，200，200，0.5); */
+    font-size: 125％;
+    font-weight: bold;
+    line-height: 125px;
+    text-align: center;
+}
+
+.front {
+    transform: translateZ(75px);
+    background-color: rgba(0, 0, 255, .6);
+}
+
+.back {
+    transform: rotateY(180deg) translateZ(75px);
+    background-color: rgba(0, 255, 0, .6);
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(75px);
+    background-color: rgba(255, 0, 0, .6);
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(75px);
+    background-color: rgba(255, 0, 255, .6);
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(75px);
+    background-color: rgba(0, 255, 255, .6);
+}
+
+.bottom {
+    transform: rotateX(90deg) translateZ(-75px);
+    background-color: rgba(255, 255, 0, .3) !important;
+}
