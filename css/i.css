@@ -1,0 +1,194 @@
+html {
+    height: 100%;
+    color: #0ff;
+    background-image: linear-gradient(to left, #033f, #0336 10%, #0339 90%, #033f);
+}
+
+body {
+    position: relative;
+    background-color: #033;
+    width: 80%;
+    height: 96%;
+    margin: 1% auto;
+    box-shadow: 1px 1px 6px #000, -1px -1px 6px #aaa;
+    border-radius: 15px 100px 15px 15px;
+    -webkit-border-radius: 15px 100px 15px 15px;
+    -moz-border-radius: 15px 100px 15px 15px;
+    -ms-border-radius: 15px 100px 15px 15px;
+    -o-border-radius: 15px 100px 15px 15px;
+}
+
+img {
+    position: absolute;
+    top: 8%;
+    left: 15%;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+img:hover {
+    opacity: 0.5;
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    transition: transform 1.5s;
+    -webkit-transition: transform 1.5s;
+    -moz-transition: transform 1.5s;
+    -ms-transition: transform 1.5s;
+    -o-transition: transform 1.5s;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 2rem;
+    text-shadow: 1px 1px 2px #000, -1px -1px 2px #ff0;
+}
+
+#main {
+    position: absolute;
+    top: 25%;
+    left: 12%;
+    width: 38%;
+}
+
+#main p {
+    text-indent: 1rem;
+}
+
+#main ul {
+    margin: 1rem 3rem;
+}
+
+#main li {
+    margin: 0.5rem;
+    list-style: none;
+}
+
+#content {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    width: 38%;
+}
+
+dt {
+    margin-top: 1rem;
+}
+
+dt::before {
+    content: '⊱⊱⊱⊱ ';
+}
+
+dd {
+    margin: 1rem;
+    text-indent: 2rem;
+}
+
+span {
+    display: block;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    transition: transform 1s 0s linear;
+    -webkit-transition: transform 1s 0s linear;
+    -moz-transition: transform 1s 0s linear;
+    -ms-transition: transform 1s 0s linear;
+    -o-transition: transform 1s 0s linear;
+}
+
+*:hover {
+    transition: transform 0s 0s;
+    -webkit-transition: transform 0s 0s;
+    -moz-transition: transform 0s 0s;
+    -ms-transition: transform 0s 0s;
+    -o-transition: transform 0s 0s;
+}
+
+li:hover span {
+    transform: rotateX(360deg);
+    -webkit-transform: rotateX(360deg);
+    -moz-transform: rotateX(360deg);
+    -ms-transform: rotateX(360deg);
+    -o-transform: rotateX(360deg);
+}
+
+p:hover {
+    transform: translate(150px, 0);
+    -webkit-transform: translate(150px, 0);
+    -moz-transform: translate(150px, 0);
+    -ms-transform: translate(150px, 0);
+    -o-transform: translate(150px, 0);
+}
+
+#print {
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    top: 10%;
+    right: 19%;
+    animation: shank 2.5s ease 0s infinite normal;
+    -webkit-animation: shank 2.5s ease 0s infinite normal;
+    animation-play-state: running;
+}
+
+#print:hover {
+    animation-play-state: paused;
+}
+
+#print button {
+    width: 120px;
+    height: 40px;
+    color: #ff0;
+    background-color: #000;
+}
+
+@keyframes shank {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+        -webkit-transform: translateX(-10px);
+        -moz-transform: translateX(-10px);
+        -ms-transform: translateX(-10px);
+        -o-transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+    }
+}
+
+@media screen and (max-width:900px) {
+    body {
+        font-size: 0.5rem;
+        border-radius: 15px 50px 15px 15px;
+        -webkit-border-radius: 15px 50px 15px 15px;
+        -moz-border-radius: 15px 50px 15px 15px;
+        -ms-border-radius: 15px 50px 15px 15px;
+        -o-border-radius: 15px 50px 15px 15px;
+    }
+    #main,
+    #content {
+        position: static;
+        width: 90%;
+        margin-top: 2rem;
+    }
+    #main ul {
+        margin: .5rem 5rem;
+    }
+    #main li {
+        margin: 0.25rem;
+    }
+}

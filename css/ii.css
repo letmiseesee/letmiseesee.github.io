@@ -1,0 +1,36 @@
+body {
+    background-color: #fff;
+    font-family: '黑体', '宋体';
+    border-radius: 15px 50px 15px 15px;
+    -webkit-border-radius: 15px 50px 15px 15px;
+    -moz-border-radius: 15px 50px 15px 15px;
+    -ms-border-radius: 15px 50px 15px 15px;
+    -o-border-radius: 15px 50px 15px 15px;
+}
+
+html {
+    background-image: none;
+    color: black;
+}
+
+#main,
+#content {
+    position: static;
+    width: 90%;
+    margin: 2rem;
+}
+
+#main ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+#print {
+    display: none;
+}
+
+img {
+    position: fixed;
+    top: 10%;
+    left: 70%;
+}
