@@ -20,11 +20,11 @@
 header div img {
     animation: headerImage 8s linear infinite;
     -webkit-animation: headerImage 8s linear infinite;
+    animation-play-state: running;
 }
 
 header div:hover img {
-    animation: none;
-    -webkit-animation: none;
+    animation-play-state: paused;
 }
 
 @media screen and (max-width: 900px) {

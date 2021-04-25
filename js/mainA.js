@@ -1,6 +1,30 @@
-var look = new Object();
+const look = new Object();
 //一句 俏皮话
 look.oneL = "是风太冷，还是我们穿的太少。或者，仅是少了那个让你穿多的人";
+look.title = ["友链", "随笔", "简历", "工具", "", "", "", "", "", "", "", "小白自话", "站点简介", "", "l"];
+look.firstShow = 3;
+// 本地 study 下页面 url
+look.con2b = [
+    ["html", "ht", "html", "html", "h5", "html 5", "media", "多媒体", 'table', '表格', "form", "表单", "cookie", "cookie", "position", "定位", "storage", "本地储存", "cache", "cache", "Message", "message", "file", "文件", 'ssee', '辅助'],
+    ["css", "cs", "css", "css", "c3", "css 3", "canvas", "画布", "box", "布局", "gradient", "变幻和贞"],
+    ["javascript", "js", "js", "基础", "number", "数值", "string", "字符串", "array", "数组", "function", "函数", "oop", "背对对象", "BOM", "BOM", "DOM", "DOM", 'DOM2and3', 'DOM 2\/3', "DOMold", "待整理", "event", "事件", "CSS", "CSS", "form", "表单", "JSON", "json", "AJAX", "ajax", "AJA", "待整理", "Worker", "线程", "history", "history", "优化", "优化", "VUE", "VUE"],
+    ["jQuery", "jq", "JQ", "JQ", 'selector', '选择器', "DOM", "DOM", "CSS", "CSS", "event", "事件", "ajax", "Ajax", "animation", "动画", 'tools', '辅助工具'],
+    ["其他", "other", "browser", "浏览器", "RegExp", "RegExp", "ssee", "扩展阅读", "smallProgram", "小程序", "http", "网络"],
+    []
+];
+// 本地 luoluowind 下页面 url
+look.con1b = [
+    ["扩展阅读", "rough", "vscode", "vscode", "excel", "excel 函数", "some", "一些"],
+    []
+];
+//  页面 个介
+look.con13a = ["其实呢，访问量是没有的。我觉得，以后也不会有的。但是，自娱自乐的精神还是得有的。", "该域名是 let mi see see 的缩写，自觉好玩，可看成是 l（et）m（i）s（ee）see，就是 “让我看看” 的意思。站内包含：我常用网址的收藏、一些零碎的文章、（邮件）反馈页面、个人日记（日志）以及 “隐私政策”。",
+    "站内，真正有用的是网址收藏，却都可以通过“度娘”等搜索引擎找到，但，我比较懒，所以做成一个页面，省的每次搜索后还得找哪个才是我想要的。",
+    "被网友无情的质问,都 0202 年了,居然还有人用 letmiseesee 这个名....",
+    "还问我是不是想起的名字是 let me see see, ohh ，my Lady Gaga...",
+    "我。。", "..."
+];
+
 // 收藏 网址 数据
 look["search_url"] = [
     ["bing", "巨硬出品，不精则以", "https:\/\/cn.bing.com\/search\?q="],
@@ -41,7 +65,6 @@ look.con1a = [
         "", "google", "https://myaccount.google.com/intro?utm_source=OGB&tab=wk&utm_medium=app", "账号", "https://www.google.com/photos/about/", "图库", "https://chrome.google.com/webstore/category/extensions?utm_source=chrome-ntp-icon", "扩展",
         "", "阿里", "https://www.alipay.com/", "支付宝",
         "", "百度", "https://www.baidu.com/", "度", "https://map.baidu.com/", "地图", "https://pan.baidu.com/", "云盘", "https://fanyi.baidu.com/", "翻译", "https://tongji.baidu.com/web/welcome/login", "统计",
-        // "", "word press", "https://cn.wordpress.org/", "wp 中文", "https://wordpress.org/liemes/neve/", "neve", "https://docs.liemeisle.com/article/946-neve-doc", "neve child", "https: //dldir1.qq.com/weixin/Windows/WeChatSetup.exe", ""
     ],
     ["bo4c", "none",
         "", "en", "https://developer.mozilla.org/zh-CN/docs/Web", "MDN", "https://www.w3school.com.cn/index.html", "w3school", "https://www.runoob.com/", "菜鸟", "https://study.163.com/", "网易课堂", "https://developers.weixin.qq.com/doc/", "tx开发文档", "https://www.jc2182.com/", "花蝴蝶",
@@ -66,29 +89,7 @@ look.con1a = [
         "", "其他 ", "https://www.jiangxiatech.com/", "江下科技", "https://storage.jd.com/jdreader/jdreadsetup.exe", "京东读书", "https://issuecdn.baidupcs.com/issue/netdisk/yunguanjia/BaiduNetdisk_7.0.10.2.exe", "百度云", "https://www.xp.cn/linux.html", "小皮", ""
     ]
 ];
-// 本地 study 下页面 url
-look.con2b = [
-    ["html", "ht", "html", "html", "h5", "html 5", "media", "多媒体", "form", "表单", "cookie", "cookie", "position", "定位", "storage", "本地储存", "cache", "cache", "Message", "message", "file", "文件", 'ssee', '辅助'],
-    ["css", "cs", "css", "css", "c3", "css 3", "canvas", "画布", "box", "布局", "gradient", "变幻和贞"],
-    ["javascript", "js", "js", "基础", "number", "数值", "string", "字符串", "array", "数组", "function", "函数", "oop", "背对对象", "BOM", "BOM", "DOM", "DOM", 'DOM2and3', 'DOM 2\/3', "DOMold", "待整理", "event", "事件", "CSS", "CSS", "form", "表单", "JSON", "json", "AJAX", "ajax", "AJA", "待整理", "Worker", "线程", "history", "history", "优化", "优化", "VUE", "VUE"],
-    ["jQuery", "jq", "JQ", "JQ", "DOM", "DOM", "CSS", "CSS", "event", "事件", "ajax", "Ajax", "animation", "动画"],
-    ["其他", "other", "browser", "浏览器", "RegExp", "RegExp", "ssee", "扩展阅读", "smallProgram", "小程序", "http", "网络"],
-    []
-];
-// 本地 luoluowind 下页面 url
-look.con1b = [
-    ["扩展阅读", "rough", "vscode", "vscode", "excel", "excel 函数", "some", "一些"],
-    []
-];
-//  页面 个介
-look.con13a = ["其实呢，访问量是没有的。我觉得，以后也不会有的。但是，自娱自乐的精神还是得有的。", "该域名是 let mi see see 的缩写，自觉好玩，可看成是 l（et）m（i）s（ee）see，就是 “让我看看” 的意思。站内包含：我常用网址的收藏、一些零碎的文章、（邮件）反馈页面、个人日记（日志）以及 “隐私政策”。",
-    "站内，真正有用的是网址收藏，却都可以通过“度娘”等搜索引擎找到，但，我比较懒，所以做成一个页面，省的每次搜索后还得找哪个才是我想要的。",
-    "被网友无情的质问,都 0202 年了,居然还有人用 letmiseesee 这个名....",
-    "还问我是不是想起的名字是 let me see see, ohh ，my Lady Gaga...",
-    "我。。。。", "..."
-];
 
-look.title = ["网址收藏", "随笔", "建议反馈", "工具", "", "", "", "", "", "", "", "小白自话", "站点简介", "", "l"];
 look.music = {
     "梁静茹": ["勇气", ""],
     "庄心妍": ["一万个舍不得", ""],

@@ -25,20 +25,15 @@ ul {
 
 body,
 html {
-    height: 95%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 
 /* body {
     perspective: 1200px;
 } */
-
-.stage {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
 
 main {
     margin: 1% auto auto 22%;
@@ -66,12 +61,10 @@ main>div>p {
 
 #bo2a>nav {
     -webkit-position: sticky;
-    /* 兼容狗比*/
     position: sticky;
     top: 0;
     background-color: #8ff;
     width: 92%;
-    /* height: 10px; */
     margin: 10px auto 0;
     padding: 0 auto;
     line-height: 0.6em;
@@ -89,14 +82,30 @@ main>div>p {
 
 #bo2a>nav li {
     display: inline-block;
-    width: 22%;
+    width: 14%;
     margin: 10px auto 0;
     padding: 0 auto;
     line-height: 0.6em;
 }
 
+#bo2a>nav li.un {
+    color: #000;
+    font-weight: 900;
+    text-shadow: 1px 1px 3px #f00, -1px -1px 3px #0f0;
+    height: 1.4rem;
+    line-height: 1rem;
+    /* background-color: #0ff; */
+}
+
 #bo2a>nav li:hover {
     box-shadow: none;
+    font-weight: 100;
+    color: #00f;
+}
+
+#bo2a>nav li.un:hover {
+    color: #ff0;
+    box-shadow: 1px 1px #f00a, -1px -1px #6f66;
 }
 
 
@@ -139,7 +148,7 @@ main>div>p {
     margin: 3px auto;
 }
 
-#bo2a>div>div nav li a {
+#bo2a>div>div nav li span {
     color: #000;
     font-size: 0.85em;
     display: inline-block;
@@ -152,7 +161,7 @@ main>div>p {
     -o-border-radius: 45%;
 }
 
-#bo2a>div>div nav li:hover a {
+#bo2a>div>div nav li:hover span {
     transform: rotateX(360deg);
     -webkit-transform: rotateX(360deg);
     -moz-transform: rotateX(360deg);
@@ -160,7 +169,7 @@ main>div>p {
     -o-transform: rotateX(360deg);
 }
 
-#bo2a>div>div nav li a:hover {
+#bo2a>div>div nav li span:hover {
     color: #0ff;
     font-weight: 600;
     background-color: #080;
@@ -173,45 +182,6 @@ main>div>p {
 
 
 /* ++++++ 反馈部分 */
-
-#bo3a form label img {
-    width: 15px;
-    margin: auto;
-}
-
-label {
-    display: block;
-    height: 20px;
-    overflow: hidden;
-    margin: auto;
-    text-align: center;
-    line-height: 20px;
-    word-spacing: unset;
-    word-wrap: initial;
-}
-
-label input {
-    height: 20px;
-    line-height: 20px;
-    align-self: center;
-    align-content: center;
-}
-
-form>input {
-    min-width: 182px;
-    display: block;
-    margin: 10px;
-    color: #ffff00;
-    background-color: black;
-}
-
-input#cen {
-    width: 15%;
-    height: 3rem;
-    line-height: 1rem;
-    margin: auto;
-    margin-top: 10px;
-}
 
 
 /* 关于我 */
@@ -241,7 +211,7 @@ footer {
     position: fixed;
     bottom: 0;
     z-index: 4;
-    background-image: linear-gradient(to right, #0aa, #8ff 22%);
+    background-image: linear-gradient(to right, #099, #8ff 22%);
 }
 
 footer p {
@@ -452,11 +422,13 @@ footer a {
 /* ++++++ 工具栏*/
 
 #tool {
+    position: relative;
     width: 80%;
     margin: auto;
 }
 
 #tool label {
+    display: block;
     width: 100%;
     margin: 1rem 0;
     padding: .5rem;
@@ -464,25 +436,33 @@ footer a {
 }
 
 #tool label input:first-child {
-    margin-right: 2rem;
     display: inline-block;
+    margin-right: 20rem;
 }
 
 #tool span {
-    width: 9rem;
+    width: 19rem;
     float: left;
+    text-align: center;
+}
+
+#tool button {
+    margin: 0 4%;
 }
 
 
 /* +++++ 头部(侧边栏) */
 
 header {
+    position: fixed;
     width: 22%;
-    height: 97%;
+    height: 100%;
     top: 0;
     left: 0;
     position: fixed;
-    background-image: linear-gradient(to left, #8ff, #0aa);
+    background-color: #099;
+    opacity: 1;
+    z-index: 11;
 }
 
 
@@ -493,7 +473,7 @@ header div img {
     margin: 50px auto 25px;
     width: 75px;
     overflow: hidden;
-    border: 2px solid #8ff;
+    border: 2px solid #0229;
     border-radius: 45%;
     -webkit-border-radius: 45%;
     -moz-border-radius: 45%;
@@ -502,7 +482,7 @@ header div img {
     opacity: 0.5;
 }
 
-header div:hover img {
+header:hover img {
     opacity: 1;
 }
 
@@ -510,8 +490,10 @@ header div:hover img {
 /* +++++ 头部  标题 & 副标题 */
 
 header .hdo {
+    position: relative;
+    left: 10%;
     width: 80%;
-    margin: 20px auto;
+    margin: auto;
 }
 
 header .hdo p,
@@ -547,33 +529,67 @@ header .hdo p a:hover {
 
 header .hdt {
     text-align: center;
-    color: #020;
-    padding: 20px;
-    height: 100%;
+    color: #000;
+    font-weight: 800;
+}
+
+#bu {
+    position: relative;
+    right: 0;
+    width: 100%;
 }
 
 #bu li {
     list-style: none;
-    margin: 4% auto;
-    width: 116px;
+    line-height: 3rem;
+    height: 3rem;
+    margin: auto;
+    width: 100%;
+    background-image: linear-gradient(to left, #0999 30%, #099a 30%, #099a 70%, #0f06);
     text-indent: 0;
+    border-radius: 15px 0 0 15px;
+    -webkit-border-radius: 15px 0 0 15px;
+    -moz-border-radius: 15px 0 0 15px;
+    -ms-border-radius: 15px 0 0 15px;
+    -o-border-radius: 15px 0 0 15px;
+}
+
+header:hover #bu li.un {
+    height: 3rem;
+    transition: all 0s 0s ease-in;
+    -webkit-transition: all 0s 0s ease-in;
+    -moz-transition: all 0s 0s ease-in;
+    -ms-transition: all 0s 0s ease-in;
+    -o-transition: all 0s 0s ease-in;
 }
 
 #bu li.un {
-    box-shadow: 1px 1px 6px #af0, -1px -1px 6px #000;
-    background: #aee;
-    color: #000;
-    text-shadow: 1px 1px .5px #8ff;
+    background-image: linear-gradient(to left, #211 30%, #000 70%);
+    color: #0ff;
+    font-weight: bolder;
+    transition: all 0.60s 0s ease-in-out;
+    -webkit-transition: all 0.60s 0s ease-in-out;
+    -moz-transition: all 0.60s 0s ease-in-out;
+    -ms-transition: all 0.60s 0s ease-in-out;
+    -o-transition: all 0.60s 0s ease-in-out;
+    height: 0;
+    overflow: hidden;
+}
+
+#bu li.un:hover {
+    background-image: linear-gradient(to left, #0ff9, #000 85%);
+    text-align: center;
+    color: #ff0;
 }
 
 #bu li::before {
     content: "⊱⊱⊱ ";
-    color: #fff;
+    color: #033;
 }
 
 #bu li::after {
     content: " ⊰⊰⊰";
-    color: #fff;
+    color: #033;
 }
 
 #bu li:hover::after {
@@ -584,9 +600,9 @@ header .hdt {
     content: "";
 }
 
-#bu li.un::before,
-#bu li.un::after {
-    color: #131;
+#bu li.un::after,
+#bu li.un::before {
+    color: #0ff;
 }
 
 
@@ -603,7 +619,7 @@ header div:first-child {
     left: 3%;
     top: 5px;
     width: 94%;
-    color: #000;
+    color: #00f8;
     z-index: 3;
     font-weight: 600;
     min-height: 30px;
@@ -622,13 +638,12 @@ header div:first-child {
     /* +++++ xr 导航栏调整 */
     * {
         font-size: .5rem;
-        line-height: 2rem;
+        line-height: 1.4rem;
     }
     main {
         margin: auto;
-        /* padding-top: 15%; */
         width: 96%;
-        height: 88%;
+        height: 92%;
     }
     html {
         width: 100%;
@@ -639,7 +654,7 @@ header div:first-child {
     main>div {
         width: 100%;
         overflow-x: hidden;
-        overflow-y: auto;
+        /* overflow-y: scroll; */
     }
     header {
         background-image: none;
@@ -651,6 +666,7 @@ header div:first-child {
         width: 100%;
         overflow: hidden;
         z-index: 20;
+        background-color: transparent;
         /* opacity: 0; */
     }
     /* ++++++ 头部 导航栏 */
@@ -672,23 +688,52 @@ header div:first-child {
         margin: 0;
     }
     #bu {
+        /* all: unset; */
         width: 100%;
         padding: 0;
         margin: 0;
         padding-inline-start: 0;
+        overflow: hidden;
     }
     #bu li {
         display: inline-block;
         font-size: 0.4rem;
         margin: 0;
         padding: 0 3%;
+        height: 5rem;
+        line-height: 2rem;
         width: 18%;
         min-width: 0px;
+        background-image: none;
+        border: 0;
+        border-radius: 0;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        -ms-border-radius: 0;
+        -o-border-radius: 0;
+    }
+    #bu li:empty {
+        display: none !important;
+    }
+    #bu li:last-child {
+        position: relative;
+        left: 0%;
     }
     #bu li.un {
+        height: 1.2rem;
+        background-image: none;
         background-color: #024;
+        line-height: 1.2rem;
         text-shadow: none;
         color: #fff;
+        text-align: center;
+    }
+    #bu li.un:hover {
+        background-image: none;
+        height: 1.2rem;
+    }
+    #header:hover #bu li.un {
+        height: 1.2rem;
     }
     #bu li::after,
     #bu li::before,
@@ -787,5 +832,21 @@ header div:first-child {
         /* font-style: oblique; */
         color: #0f0;
         text-shadow: 1px 1px 1px #f0f, -1px -1px 1px #fff;
+    }
+    #tool {
+        width: 100%;
+        margin: auto;
+    }
+    #tool label {
+        margin: 1rem 0;
+        padding: .5rem;
+    }
+    #tool span {
+        width: 9rem;
+        float: left;
+        text-align: center;
+    }
+    #tool button {
+        margin: 0 1%;
     }
 }

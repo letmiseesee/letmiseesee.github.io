@@ -1,24 +1,4 @@
-html {
-    height: 100%;
-    color: #0ff;
-    background-image: linear-gradient(to left, #033f, #0336 10%, #0339 90%, #033f);
-}
-
-body {
-    position: relative;
-    background-color: #033;
-    width: 80%;
-    height: 96%;
-    margin: 1% auto;
-    box-shadow: 1px 1px 6px #000, -1px -1px 6px #aaa;
-    border-radius: 15px 100px 15px 15px;
-    -webkit-border-radius: 15px 100px 15px 15px;
-    -moz-border-radius: 15px 100px 15px 15px;
-    -ms-border-radius: 15px 100px 15px 15px;
-    -o-border-radius: 15px 100px 15px 15px;
-}
-
-img {
+#bo3a>img {
     position: absolute;
     top: 8%;
     left: 15%;
@@ -31,7 +11,7 @@ img {
     -o-border-radius: 50%;
 }
 
-img:hover {
+#bo3a>img:hover {
     opacity: 0.5;
     transform: scale(0.5);
     -webkit-transform: scale(0.5);
@@ -45,57 +25,57 @@ img:hover {
     -o-transition: transform 1.5s;
 }
 
-h1 {
+#bo3a h1 {
     text-align: center;
     padding-top: 2rem;
     text-shadow: 1px 1px 2px #000, -1px -1px 2px #ff0;
 }
 
-#main {
+#bo3a>#main {
     position: absolute;
     top: 25%;
     left: 12%;
     width: 38%;
 }
 
-#main p {
+#bo3a>#main p {
     text-indent: 1rem;
 }
 
-#main ul {
+#bo3a>#main ul {
     margin: 1rem 3rem;
 }
 
-#main li {
-    margin: 0.5rem;
+#bo3a>#main li {
+    margin: 0.2rem;
     list-style: none;
 }
 
-#content {
+#bo3a #content {
     position: absolute;
     top: 15%;
     left: 50%;
-    width: 38%;
+    width: 42%;
 }
 
-dt {
+#bo3a dt {
     margin-top: 1rem;
 }
 
-dt::before {
+#bo3a dt::before {
     content: '⊱⊱⊱⊱ ';
 }
 
-dd {
+#bo3a dd {
     margin: 1rem;
     text-indent: 2rem;
 }
 
-span {
+#bo3a span {
     display: block;
 }
 
-* {
+#bo3a {
     margin: 0;
     padding: 0;
     transition: transform 1s 0s linear;
@@ -105,7 +85,7 @@ span {
     -o-transition: transform 1s 0s linear;
 }
 
-*:hover {
+#bo3a:hover {
     transition: transform 0s 0s;
     -webkit-transition: transform 0s 0s;
     -moz-transition: transform 0s 0s;
@@ -113,7 +93,7 @@ span {
     -o-transition: transform 0s 0s;
 }
 
-li:hover span {
+#bo3a li:hover span {
     transform: rotateX(360deg);
     -webkit-transform: rotateX(360deg);
     -moz-transform: rotateX(360deg);
@@ -121,7 +101,7 @@ li:hover span {
     -o-transform: rotateX(360deg);
 }
 
-p:hover {
+#bo3a p:hover {
     transform: translate(150px, 0);
     -webkit-transform: translate(150px, 0);
     -moz-transform: translate(150px, 0);
@@ -129,7 +109,7 @@ p:hover {
     -o-transform: translate(150px, 0);
 }
 
-#print {
+#bo3a #print {
     width: 100px;
     height: 100px;
     position: fixed;
@@ -140,15 +120,26 @@ p:hover {
     animation-play-state: running;
 }
 
-#print:hover {
+#bo3a #print:hover {
     animation-play-state: paused;
 }
 
-#print button {
+#bo3a #print button {
     width: 120px;
     height: 40px;
     color: #ff0;
     background-color: #000;
+}
+
+#WeiXin {
+    height: 0;
+    overflow: hidden;
+    display: none;
+}
+
+#bo3a>#main>ul:nth-child(2):hover~#WeiXIn {
+    display: block;
+    height: auto;
 }
 
 @keyframes shank {
@@ -171,24 +162,21 @@ p:hover {
 }
 
 @media screen and (max-width:900px) {
-    body {
-        font-size: 0.5rem;
-        border-radius: 15px 50px 15px 15px;
-        -webkit-border-radius: 15px 50px 15px 15px;
-        -moz-border-radius: 15px 50px 15px 15px;
-        -ms-border-radius: 15px 50px 15px 15px;
-        -o-border-radius: 15px 50px 15px 15px;
-    }
-    #main,
-    #content {
+    #bo3a #main,
+    #bo3a #content {
         position: static;
         width: 90%;
         margin-top: 2rem;
     }
-    #main ul {
+    #bo3a #main ul {
         margin: .5rem 5rem;
     }
-    #main li {
+    #bo3a #main li {
         margin: 0.25rem;
+    }
+    #bo3a>img {
+        top: 22%;
+        left: 75%;
+        /* right: 10%; */
     }
 }

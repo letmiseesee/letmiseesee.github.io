@@ -1,17 +1,14 @@
 let userAgent = window.navigator.userAgent;
 let eLocation = "https://lmssee.cn/error.html";
-if ((userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1) || (userAgent.indexOf('Trident') > -1 && userAgent.indexOf("rv:11.0") > -1)) {
-    window.location = eLocation
-}
-setInterval(() => {
-    if (window == top) {
-        noCopy();
-    };
-    if (top.location.hostname != "lmssee.cn") {
-        noCopy();
-    }
+// setInterval(() => {
+//     if (window == top) {
+//         noCopy();
+//     };
+//     if (top.location.hostname != "lmssee.cn") {
+//         noCopy();
+//     }
 
-}, 50);
+// }, 7);
 // alert(top.location.hostname);
 // alert(location.hostname);
 (() => {
@@ -22,6 +19,7 @@ setInterval(() => {
     ICON.href = "https://lmssee.cn/image/lmssee.ico";
     header.insertBefore(ICON, header.childNodes[2]);
 })();
+
 /*
 let _hmt = _hmt || [];
 (function() {
@@ -37,22 +35,11 @@ window.onerror = function(message) {
 };*/
 //正则表达式对象
 Validator = {
-    Require: /.+/, //是否为空
     Email: /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/, //Email
     Phone: /^(?:(\(?:\d{2,3}\))|(\d{3}\-))?(\(0\d{2,3}\)|0\d{2,3}-)?[1-9]\d{6-7}(\-\d{1,4})?$/, //电话号码
-    Mobile: /^(?:(?:\(\d{2,3}\))|(?:\d{3}\-))?13\d{9}$/, //手机号码	Require : /.+/,//是否为空
+    Mobile: /^(?:(?:\(\d{2,3}\))|(?:\d{3}\-))?1[3-9]\d{9}$/, //手机号码	Require : /.+/,//是否为空
     Url: /^http:\/\/[A-Za-z0-9]+\.[A-Za-z0-9]+[\/=\?%\-&_~`@[\]\':+!]*([^<>\"\"])*$/, //使用 HTTP 协议的网址
-    IdCard: "this.IsIdCard(value)", //
-    Currency: /^\d+(\.\d+)?$/, //货币
-    Number: /^\d+$/, //数字
-    Zip: /^[1-9]\d{5}$/, //邮政编码
-    QQ: /^[1-9]\d{4,12}$/, //QQ 号码
-    Integer: /^[-\+]?\d+$/, //整数
-    Double: /^[-\+]?\d+(\.\d+)?$/, //实数
-    English: /^[A-Za-z]+$/, //英文
     Chinese: /^[\u0391-\uFFE5]+$/, //中文
-    Username: /^[a-z]\w{3,}$/i, //用户名
-    UnSafe: /^(([A-Z]*|[a-z]*|\d*|[-_\~!@#\$%\^&\*\.\(\)\[\]\{\}<>\?\\\/\'\"]*)|.{0,5})$|\s/, //符合某规则的密码
 };
 
 //禁止冒泡
@@ -122,14 +109,45 @@ Function.prototype.clone = function(o) {
 //     }
 // }
 节点对象*/
-
+let cursor = {};
+cursor.w = function(event) {
+    this.x = X = 0;
+    this.y = Y = 0;
+    let e = event || window.event;
+    if (e.pageX || e.pageY) {
+        X = e.pageX;
+        Y = e.pageY
+    } else if (e.clientX || e.clientY) {
+        X = e.clientX + document.documentElement.scrollLeft + document.body.scrollLeft;
+        Y = e.clientY + document.documentElement.scrollTop + document.body.scrollTop;
+    }
+    return { x: X, y: Y };
+};
+cursor.f = function(n, a, b, e) {
+    n.style.position = "absolute";
+    n.style.top = (cursor.w(e).y + b) + "px";
+    n.style.left = (cursor.w(e).x + a) + "px"
+}
 let node = {};
+node.i = function(n, a = 0) {
+    if (document.querySelector(n) != null) {
+        if (a > 0) { return document.querySelectorAll(n); };
+        return document.querySelector(n);
+    } else {
+        try {
+            throw new error('there some error');
+        } catch (e) {
+            return console.log(e.message)
+        }
+    }
+}
+let mi = node.i;
 node.add = {
     "li": function(id) {
         let a = document.createDocumentFragment();
         eval(id).forEach(c => {
             let d = document.createElement("li");
-            d.textContent = c.trim();
+            d.innerHTML = c.trim();
             a.appendChild(d)
         });
         let g = document.getElementById(id);
@@ -142,7 +160,7 @@ node.add = {
             let b = document.createElement("tr");
             c.forEach(o => {
                 let d = document.createElement("td");
-                d.textContent = o;
+                d.innerHTML = o;
                 b.appendChild(d);
             })
             a.appendChild(b);
@@ -151,19 +169,26 @@ node.add = {
         g.appendChild(a);
         return g;
     },
-    "data-": function(nodeName, AttributeName, AttributeValue) {
-        let a = document.createAttribute("data-" + AttributeName);
-        a.value = AttributeValue;
-        nodeName.setAttributeNode(a);
-        return nodeName;
+    "data-": function(o, n, v) {
+        let a = document.createAttribute("data-" + n);
+        a.value = v;
+        o.setAttributeNode(a);
+        return o;
     },
-    "e": function(n, e, fn) {
+    "e": function(n, event, fn) {
+        if (n.nodeType != 1 && mi(n) != null) {
+            n = mi(n)
+        } else if (n.nodeType == 1) {
+            n = n;
+        } else if (n.nodeType != 1 && mi(n) == null) {
+            throw new error('为捕获元素');
+        }
         if (n.addEventListener) {
-            n.addEventListener(e, fn, false)
+            n.addEventListener(event, fn, false)
         } else if (n.attachEvent) {
-            n.attachEvent("on" + e, fn);
+            n.attachEvent("on" + event, fn);
         } else {
-            n["on" + e] = fn;
+            n["on" + event] = fn;
         }
     }
 };
@@ -275,31 +300,36 @@ Array.prototype.l_each = function(f) {
     return this
 };
 //对象注册函数
-function addHandler(element, type, handle) {
-    if (element.addEventListener) {
-        element.addEventListener(type, handle, false)
-    } else if (element.attachEvent) {
-        element.attachEvent("on" + type, handle);
-    } else {
-        element["on" + type] = handle;
+
+let t1, t2 = new Date();
+
+function tR(event) {
+    let e = event || window.event;
+    let tar = e.target || e.srcElement;
+    // let v = tar.innerText;
+    if (tar.nodeName.toUpperCase() == "LI") {
+        let n = tar.id;
+        let z = n.replace(/.*?\d+(\w)/, '$1');
+        n = Number.parseInt(n.substring(2));
+        tr(n, z);
     }
 }
-let trTo, trTt = new Date();
+let trTime1, trTime2 = new Date();
 
 function tr(n, z) {
     let a = document.querySelector('#bo' + n + z);
     let b = document.querySelector('#bu' + n + z);
-    trTo = new Date();
-    if (b.className != 'un' && (trTo - trTt) > 600) {
-        trTt = trTo;
+    trTime1 = new Date();
+    if (b.className != 'un' && (trTime1 - trTime2) > 600) {
+        trTime2 = trTime1;
         document.querySelector(`[id$=${z}].bl`).className = 'mi';
         document.querySelector(`[id$=${z}].un`).className = 'nor';
         b.className = 'un';
-        a.className = 'bl';
         setTimeout(() => {
-            document.querySelector(`[id$=${z}].mi`).className = 'none'
+            document.querySelector(`[id$=${z}].mi`).className = 'none';
+            a.className = 'bl';
         }, 300);
-    };
+    }
 }
 
 // 颜色 转化
@@ -363,17 +393,18 @@ function reload() {
     location.reload('true')
 }
 //粘贴函数
-function copy_node_event(nodeName, evenT) {
-    let className = document.querySelectorAll(nodeName);
+function copy_node_event(n, evenT) {
+    let className = document.querySelectorAll(n);
     let nodeLength = className.length;
     for (let i = 0; i < nodeLength; i++) {
-        className[i].addEventListener(evenT, function() {
+        node.add.e(className[i], evenT, function(e) {
+            stop_bubble(e);
             // let e = e || window.event;
             // let t = e.target || e.srcElement;
             // let v = t.innerHTML;
             let v = this.innerHTML;
             v = v.toString();
-            v += "\.\.\.\n大神，你好\！您动动小手，我却敲了半天。手下留情。爱你，摸摸大。本站资源归个人所有。源码地址" + window.location.href.slice(0, window.location.href.lastIndexOf("\/") + 1) + " ©甘酒肆余生 ";
+            v += "本站资源归个人所有。源码地址" + window.location.href.slice(0, window.location.href.lastIndexOf("\/") + 1) + " ©甘酒肆余生 ";
             v = v.replace(/\/\/.*?>/igm, "");
             v = v.replace(/(?:\<span class=\"r\"\>)|(?:<span class="p\d{0,2}">)/gim, "");
             v = v.replace(/\<\/span\>/igm, "\n");
@@ -389,7 +420,6 @@ function copy_node_event(nodeName, evenT) {
             v = v.replace(/\&\#8216\;|\&\#8217\;|\&([\s]*)\#8216\;|\&([\s]*)\#8217\;|\&\#([\s]*)8216\;|\&\#([\s]*)8217\;/igm, "'");
             // v = v.substr(0, 100);
             copy_text(v);
-            stop_bubble(this);
         }, true);
     }
 };
@@ -477,7 +507,6 @@ function noCopy() {
     } else {
         window.location = eLocation
     }
-
 };
 /* ajax */
 function addAjax() {

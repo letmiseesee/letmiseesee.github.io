@@ -1,36 +1,79 @@
-body {
-    background-color: #fff;
-    font-family: '黑体', '宋体';
-    border-radius: 15px 50px 15px 15px;
-    -webkit-border-radius: 15px 50px 15px 15px;
-    -moz-border-radius: 15px 50px 15px 15px;
-    -ms-border-radius: 15px 50px 15px 15px;
-    -o-border-radius: 15px 50px 15px 15px;
-}
-
+body,
 html {
-    background-image: none;
-    color: black;
+    background-color: none;
+    height: 98%;
 }
 
-#main,
-#content {
+body {
+    width: 96%;
+    color: black;
+    background-color: #122;
+    font-family: '黑体', '宋体';
+    border: 3px dotted #000;
+    border-radius: 15px 45px 15px 15px;
+    -webkit-border-radius: 15px 45px 15px 15px;
+    -moz-border-radius: 15px 45px 15px 15px;
+    -ms-border-radius: 15px 45px 15px 15px;
+    -o-border-radius: 15px 45px 15px 15px;
+}
+
+main:nth-child(3) {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#header,
+#linL,
+footer,
+main>div:not(:nth-child(3)) {
+    display: none;
+}
+
+main {
+    width: 100%;
+    margin: 0;
+}
+
+#bo3a #main,
+#bo3a #content {
     position: static;
     width: 90%;
     margin: 2rem;
 }
 
-#main ul li a {
+#bo3a p {
+    width: 45%;
+}
+
+#jiao {
+    position: fixed;
+    top: 25%;
+    right: 0%;
+    /* right: 10%; */
+}
+
+#bo3a #main ul:last-child {
+    position: absolute;
+    top: 30%;
+    right: 0%;
+}
+
+#bo3a #main ul li a {
     text-decoration: none;
     color: #000;
 }
 
-#print {
+#bo3a #print {
     display: none;
 }
 
-img {
+#bo3a img {
     position: fixed;
     top: 10%;
     left: 70%;
+}
+
+#bo3a dd {
+    margin: 0.5rem;
 }

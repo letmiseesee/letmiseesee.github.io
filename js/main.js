@@ -4,35 +4,33 @@ let checkTime = function(i) {
     }
     return i;
 };
-userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1;
+// userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1;
 let showtime = function() {
     let nowdate = new Date(); //创建Date对象nowdate,以获取当前时间
     let year = nowdate.getFullYear(), //获取年份
         month = nowdate.getMonth() + 1, //获取月份，getMonth()得到的是0-11，需要加1
         date = nowdate.getDate(), //获取日份
         day = nowdate.getDay(), //获取一周中的某一天，getDay()得到的是0-6
-        week = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+        week = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
         h = nowdate.getHours(),
         m = nowdate.getMinutes(),
         s = nowdate.getSeconds();
     h = checkTime(h); //函数checkTime用于格式化时，分，秒
     m = checkTime(m);
     s = checkTime(s);
-    return year + "年" + month + "月" + date + "日 " + week[day] + " " + h + ":" + m + ":" + s;
+    return year + "." + month + "." + date + "." + week[day] + " " + h + ":" + m + ":" + s;
 };
-//显示首次  警告
-function alertFirst() {
-    if (!window.localStorage.getItem('sto')) {
-        alert('你好,我是本地缓存。\n道理上，我只显示一次\n只是想说下，本站收藏页为方便个人使用\n并无任何商业用途\n若您依旧觉着有侵权行为\n还希望尽早告知，可通过反馈页反馈\n再次声明\n\n本站没有技术支持，仅是静态网页，搜索后页面内容不受本站控制');
-        window.localStorage.setItem('sto', 'true');
-    }
+
+function topRemoveThis() {
+    let a = mi('#iframeUn');
+    a.src = '';
+    a.style.display = 'none';
+    a.className = 'none';
 }
 
-
 function delS(a) {
-    let d = document.getElementById(a);
+    let d = mi('#' + a);
     d = d.value;
-    // d = d.trim(); 去除 首尾的 空格，不需要
     if (a == 'fanyi') {
         d = d.replace(/\s{3,}/, '  ');
     } else {
@@ -43,7 +41,52 @@ function delS(a) {
     }
     return d;
 }
-
+//  脚步替换
+function tooo() {
+    setInterval(() => {
+        if (mi('#bo14a').className == "bl" || mi('#bo12a').className == 'bl') {
+            tr(3, 'a');
+        }
+    }, 6000);
+}
+// 添加 bo2b
+function addAtoLI(kk) {
+    let c = document.createDocumentFragment();
+    kk.forEach(z => {
+        let n = z.length;
+        if (n == 0 || z[0] == "") return;
+        let d = document.createElement('div');
+        let e = document.createElement('h2');
+        e.innerHTML = z[0];
+        d.appendChild(e);
+        let f = document.createElement('nav');
+        let g = document.createElement('ul');
+        f.appendChild(g);
+        d.appendChild(f);
+        for (let i = 2; i < n; i += 2) {
+            let l = document.createElement('li');
+            let a = document.createElement('span');
+            let href = "l/" + z[1] + '/' + z[i] + '/index.html';
+            node.add['data-'](l, 'target', href.replace(/\s*/g, ''));
+            node.add['data-'](a, 'target', href.replace(/\s*/g, ''));
+            a.textContent = z[i + 1];
+            l.appendChild(a);
+            g.appendChild(l);
+        }
+        c.appendChild(d);
+    });
+    return c;
+}
+// 添加 bo14a
+function addCon13a(a) {
+    let c = document.createDocumentFragment();
+    a.forEach(z => {
+        let b = document.createElement('p');
+        b.innerText = z;
+        c.appendChild(b);
+    });
+    return c;
+}
 // 添加 bo1a
 function addAtoLIT(kk) {
     let lN = htmlWidth < 900 ? 4 : 6;
@@ -91,10 +134,10 @@ function addAtoLIT(kk) {
 };
 
 function searchAll(b, c) {
-    let d = document.getElementById(b);
+    let d = mi('#' + b);
     let a = 'a';
     for (let i = 1; i < 16; i++)
-        if (document.getElementById(b + i + a)) {} else {
+        if (mi('#' + b + i + a)) {} else {
             let g = document.createElement(c);
             g.id = b + i + a;
             d.appendChild(g);
@@ -123,7 +166,13 @@ document.onkeydown = document.onkeyup = document.onkeypress = function(e) {
 
     }
 };
-
+// alert(getCookie("hi"));
+// if (getCookie("hi") == null) {
+//     setCookie("hi", "now", 12);
+// } else {
+//     alert(getCookie("hi"));
+//     alert(getCookie("hi"));
+// }
 document.addEventListener('dblclick', reload);
 document.oncontextmenu = () => {
     window.event.returnValue = false;
@@ -138,60 +187,77 @@ searchAll('bo', 'div');
 searchAll('bu', 'li');
 // 列表页 
 (() => {
-    let b = document.getElementById('bo2a');
-    for (let i = 1; i < 5; i++)
-        if (document.getElementById("bo" + i + 'b')) {} else {
+    let b = mi('#bo2a');
+    for (let i = 1; i < 7; i++)
+        if (mi("#bo" + i + 'b')) {} else {
             let a = document.createElement('div');
             a.id = 'bo' + i + 'b';
-            a.className = i == 1 ? 'bl' : 'none';
+            a.className = i == 2 ? 'bl' : 'none';
             b.appendChild(a);
         }
 })();
-document.getElementById('bo1b').appendChild(addAtoLI(look.con1b));
-document.getElementById('bo2b').appendChild(addAtoLI(look.con2b));
-let boc = document.getElementById('div_form');
+mi('#bo3b').appendChild(addAtoLI(look.con1b));
+mi('#bo2b').appendChild(addAtoLI(look.con2b));
+let boc = mi('#div_form');
 let bocA = addAtoLIT(look.con1a);
 boc.parentNode.appendChild(bocA);
-(() => {
-    function f(a) {
-        for (let i = 1; i < 100; i++) {
-            if (!document.querySelector('#bu' + i + a)) break;
-            document.querySelector('#bu' + i + a).addEventListener('mouseover', function(e) {
-                tr(i, a)
-                stop_bubble(e);
-            });
-        }
+
+let bAn_o = mi('#beiAn_o'),
+    bAn_t = mi('#beiAn_t');
+setInterval(() => {
+    if (bAn_o.style.display === "none") {
+        bAn_t.style.display = "none";
+        bAn_o.style.display = "block";
+    } else {
+        bAn_o.style.display = "none";
+        bAn_t.style.display = "block";
     }
-    f('a');
-    f('b');
-    f('c');
-})();
-document.querySelector('#bu12a').addEventListener('mouseout', () => { tr(2, 'a') });
-document.querySelector('#bu13a').addEventListener('mouseout', () => { tr(2, 'a') });
-let bo14 = document.querySelector('#bo14a');
+}, 2000);
+node.add.e(mi('#bu'), 'mouseover', (e) => { tR(e) });
+node.add.e(mi('#header'), 'mouseleave', (e) => {
+    setTimeout(() => {
+        let a = mi('[id$=a].un');
+        a.parentNode.appendChild(a.parentNode.removeChild(a));
+    }, 600);
+});
+node.add.e(mi('#bu1c').parentNode, 'mouseover', (e) => { tR(e) });
+node.add.e(mi('#bu1b').parentNode, 'mouseover', (e) => { tR(e) });
+let bo14 = mi('#bo14a');
 bo14.addEventListener('click', () => { tr(2, 'a') });
 bo14.addEventListener('dblclick', () => { tr(2, 'a') });
 (() => {
     function f(a) {
         for (let i = 1; i < 100; i++) {
-            if (!document.querySelector('#bo' + i + a)) break;
-            document.querySelector('#bo' + i + a).className = i == 2 ? 'bl' : 'none';
+            if (!mi('#bo' + i + a)) break;
+            mi('#bo' + i + a).className = i == look.firstShow ? 'bl' : 'none';
+            mi('#bu' + i + a).className = i == look.firstShow ? 'un' : 'nor';
         }
     }
     f('a');
-    f('b');
 })();
-bo14.className = 'none';
-if (htmlWidth < 900) {
-    document.getElementById('bo1a').className = 'bl';
-    document.getElementById('bo2a').className = 'none';
-    document.getElementById('bu2a').className = 'nor';
-    document.getElementById('bu1a').className = 'un';
-    alertFirst()
-}
+// if (htmlWidth < 900) {
+//     mi('#bo1a').className = 'bl';
+//     mi('#bo2a').className = 'none';
+//     mi('#bu2a').className = 'nor';
+//     mi('#bu1a').className = 'un';
+//     alertFirst()
+// }
+
+node.add.e(mi('#bo2a'), 'click', function(event) {
+    let e = event || window.event;
+    let t = e.target || e.srcElement;
+    let a = t.dataset["target"];
+    if (a) {
+        // alert(a);
+        let f = mi('#iframeUn');
+        f.src = a;
+        f.className = 'flow';
+        f.style.display = 'block';
+    }
+});
 (() => {
     // 搜索框 
-    let ff = document.getElementById('search');
+    let ff = mi('#search');
     ff.autocomplete = "off";
     ff.name = "q";
     ff.autofocus = "autofocus";
@@ -229,13 +295,13 @@ if (htmlWidth < 900) {
             return this.href = look.search_url[i][2] + a;
         }
     };
-    let g = document.getElementById('fanyi');
+    let g = mi('#fanyi');
     g.autocomplete = "off";
     g.addEventListener('focus', () => {
         g.style.backgroundColor = '#060';
         g.style.color = '#0f0';
         g.style.borderRadius = '1rem';
-        setInterval(function i() { document.getElementById('fanyi').value = delS('fanyi') }, 50);
+        setInterval(function i() { mi('#fanyi').value = delS('fanyi') }, 50);
         g.onblur = clearInterval(i);
     });
     g.addEventListener('blur', () => {
@@ -248,7 +314,7 @@ if (htmlWidth < 900) {
         g_a_add.innerHTML = look.translation_url[i][0];
         g.parentNode.appendChild(g_a_add);
     };
-    let g_a = document.querySelectorAll("#formFanyi>a");
+    let g_a = mi("#formFanyi>a", 1);
     for (let i = 0; i < g_a_n; i++) {
         g_a[i].onmouseover = g_a[i].onclick = function() {
             if (g.value == " " || g.value == "") {
@@ -275,27 +341,39 @@ if (htmlWidth < 900) {
     let b = look.title;
     for (let i = 0; i < 15; i++) {
         let c = i + 1;
-        a[i] = document.querySelector('#bu' + c + 'a');
+        a[i] = mi('#bu' + c + 'a');
         a[i].addEventListener('mouseover', () => {
             document.title = "⊱⊱⊱⊱⊱" + b[i] + "⊰⊰⊰⊰⊰"
         });
     }
 })();
-// 向 #bo13a 添加 元素 
-let bo13a = document.querySelector('#bo13a');
-let bo13aa = addCon13a(look.con13a);
-bo13a.appendChild(bo13aa);
-// 首次显示
-let bu1a = document.querySelector('#bu1a');
-bu1a.addEventListener('mouseover', alertFirst);
-let div = document.querySelector("#showtime");
+mi('#bo13a').appendChild(addCon13a(look.con13a));
+let div = mi("#showtime");
 div.innerHTML = showtime();
 setInterval(function() {
     div.innerHTML = showtime();
 }, 7890);
 
+// alert('this');
+//页脚
+let f = mi('#footer');
+let f_p = f.getElementsByTagName("p");
+let f_p_n = f_p.length;
+f_p[3].innerHTML = "CopyRight&nbsp;&copy;2020-" + (new Date()).getFullYear() + "&nbsp;&nbsp;&nbsp;距离被评为百年全网最烂网站还差 &nbsp;&nbsp;&nbsp;" + (2119 - (new Date()).getFullYear()) + "." + 100 * l_floor((12 - (new Date()).getMonth() - 1) / 12, 2) + "&nbsp;&nbsp; 年";
+f.addEventListener('click', () => {
+    tr(14, 'a');
+}, true);
+setInterval(
+    () => {
+        for (let i = 0; i < f_p_n; i++) {
+            f_p[i].style.display = "none"
+        }
+        f_p[l_random(f_p_n - 1)].style.display = "block";
+    }, 1200
+);
+
 function toolOtO(a, fn) {
-    let t = document.querySelector("#" + a);
+    let t = mi("#" + a);
     let tT = document.createElement("input");
     tT.id = a + "T";
     tT.className = "copy";
@@ -317,7 +395,7 @@ function toolOtO(a, fn) {
 };
 
 function toolOtT(a, fn1, b, fn2, c) {
-    let t = document.querySelector("#" + a),
+    let t = mi("#" + a),
         tb = document.createElement("button"),
         tc = document.createElement("button");
     tb.innerHTML = b;
@@ -381,4 +459,5 @@ toolOtO("tool6", function() {
         return 0;
     }
 });
-console.log('this');
+node.add.e('body', 'mousemove', (e) => { window.location.hash = cursor.w(e).x + "." + cursor.w(e).y + "&(这数字没啥意义，就是觉得好玩)" });
+// alert(mi('li').nodeType);
