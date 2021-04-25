@@ -619,11 +619,11 @@ header div:first-child {
     left: 3%;
     top: 5px;
     width: 94%;
-    color: #00f8;
+    color: #fff;
     z-index: 3;
     font-weight: 600;
     min-height: 30px;
-    text-shadow: .5px .5px .5px #fff, -.5px -.5px .5px #008;
+    text-shadow: .5px .5px .5px #000, -.5px -.5px .5px #00f;
 }
 
 @media screen and (max-width: 900px) {
